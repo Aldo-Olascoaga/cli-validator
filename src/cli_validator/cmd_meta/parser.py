@@ -139,8 +139,6 @@ class CLIParser(argparse.ArgumentParser):
                 'default': param.get('default'),
                 'type': self.convert_type(param.get('type')) if param.get('type') else None,
             }
-            if 'required' in param and len(param['options']) > 0:
-                kwargs['required'] = param['required']
             self.add_argument(*param['options'], **kwargs)
 
     def error(self, message: str) -> NoReturn:
